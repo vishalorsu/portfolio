@@ -1,13 +1,11 @@
 import React, { useRef, useState } from 'react';
 import '../assets/styles/Contact.scss';
-// import emailjs from '@emailjs/browser';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import TextField from '@mui/material/TextField';
 
 function Contact() {
-
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [message, setMessage] = useState<string>('');
@@ -74,6 +72,7 @@ function Contact() {
                 }}
                 error={nameError}
                 helperText={nameError ? "Please enter your name" : ""}
+                fullWidth
               />
               <TextField
                 required
@@ -86,6 +85,7 @@ function Contact() {
                 }}
                 error={emailError}
                 helperText={emailError ? "Please enter your email or phone number" : ""}
+                fullWidth
               />
             </div>
             <TextField
@@ -102,6 +102,7 @@ function Contact() {
               }}
               error={messageError}
               helperText={messageError ? "Please enter the message" : ""}
+              fullWidth
             />
             <Button variant="contained" endIcon={<SendIcon />} onClick={sendEmail}>
               Send
