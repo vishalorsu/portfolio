@@ -27,7 +27,7 @@ function Project() {
             </div>
             <div className="project">
                 <a href="https://github.com/vishalorsu/IBM-Data-Science-Capstone-Project" target="_blank" rel="noreferrer"><img src={mock08} className="zoom" alt="thumbnail" width="100%"/></a>
-                <a href="https://github.com/vishalorsu/IBM-Data-Science-Capstone-Project" target="_blank" rel="noreferrer"><h2>Sapcex Falcon 9 Landing Prediction</h2></a>
+                <a href="https://github.com/vishalorsu/IBM-Data-Science-Capstone-Project" target="_blank" rel="noreferrer"><h2>Spacex Falcon 9 Landing Prediction</h2></a>
                 <p>Developed a prediction model for SpaceX Falcon 9 rocket landings using machine learning techniques, focusing on flight data and landing success rates.</p>
             </div>
         </div>
