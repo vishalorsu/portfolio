@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import TextField from '@mui/material/TextField';
+import emailjs from '@emailjs/browser';
 
 function Contact() {
   const [name, setName] = useState<string>('');
@@ -23,28 +24,36 @@ function Contact() {
     setEmailError(email === '');
     setMessageError(message === '');
 
-    /* Uncomment below if you want to enable the emailJS */
+    if (name !== '' && email !== '' && message !== '') {
+      // Initialize EmailJS with your public key
+      emailjs.init("Lu7VXNrYUdYf_d-06");
 
-    // if (name !== '' && email !== '' && message !== '') {
-    //   var templateParams = {
-    //     name: name,
-    //     email: email,
-    //     message: message
-    //   };
+      const templateParams = {
+        from_name: name,
+        reply_to: email,
+        to_email: "vishalorsu3@gmail.com",
+        message: message
+      };
 
-    //   console.log(templateParams);
-    //   emailjs.send('service_id', 'template_id', templateParams, 'api_key').then(
-    //     (response) => {
-    //       console.log('SUCCESS!', response.status, response.text);
-    //     },
-    //     (error) => {
-    //       console.log('FAILED...', error);
-    //     },
-    //   );
-    //   setName('');
-    //   setEmail('');
-    //   setMessage('');
-    // }
+      emailjs.send(
+        'service_ud3swce', // Email JS service ID
+        'template_t50va8b', // Email JS template ID
+        templateParams
+      ).then(
+        (response) => {
+          console.log('SUCCESS!', response.status, response.text);
+          alert('Message sent successfully!');
+          // Clear form after successful send
+          setName('');
+          setEmail('');
+          setMessage('');
+        },
+        (error) => {
+          console.log('FAILED...', error);
+          alert('Failed to send message. Please try again.');
+        }
+      );
+    }
   };
 
   return (

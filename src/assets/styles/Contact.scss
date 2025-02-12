@@ -1,37 +1,72 @@
-.contact_wrapper svg {
-  font-size: 1em;
-  vertical-align: middle;
-  margin-right: 5px;
+.contact_wrapper {
+  svg {
+    font-size: 1em;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+
+  h1, p {
+    color: white; // Making titles and text white
+  }
 }
 
 .contact-form {
   padding-top: 20px;
 
+  // Style for input text and labels
+  .MuiInputBase-input {
+    color: #050f0b !important; // Dark text for input fields
+  }
+
+  .MuiInputLabel-root {
+    color: rgba(0, 0, 0, 0.7) !important; // Dark label color
+    
+    &.Mui-focused {
+      color: #5000ca !important;
+    }
+  }
+
+  // Style for the outlined border
+  .MuiOutlinedInput-root {
+    background-color: white; // White background for input fields
+    
+    fieldset {
+      border-color: rgba(0, 0, 0, 0.3);
+    }
+
+    &:hover fieldset {
+      border-color: rgba(0, 0, 0, 0.5);
+    }
+
+    &.Mui-focused fieldset {
+      border-color: #5000ca !important;
+    }
+  }
+
   button {
     float: right;
     background-color: white;
     color: #050f0b;
-  }
+    padding: 8px 24px;
+    margin-top: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 
-  button:hover {
-    background-color: #5000ca;
-    color: white;
+    &:hover {
+      background-color: #5000ca;
+      color: white;
+    }
   }
-
-  fieldset {
-    background-color: white;
-  }
-}
-
-label {
-  font-size: 1.2rem;
-  font-family: 'DomaineDispNar-Medium', sans-serif;
 }
 
 .form-flex {
   display: flex;
   gap: 15px;
   padding-bottom: 15px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 }
 
 .form-flex .MuiFormControl-root {
@@ -45,4 +80,10 @@ form {
 .body-form {
   width: 100% !important;
   margin-bottom: 15px !important;
+}
+
+// Helper text styling
+.MuiFormHelperText-root {
+  color: #d32f2f !important;
+  margin-left: 0 !important;
 }
